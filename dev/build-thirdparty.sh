@@ -20,6 +20,11 @@ function process_setup_ubuntu_2204 {
   cp /usr/local/lib/{libhdfs3.so.1,libprotobuf.so.32,libboost_context.so.1.84.0,libboost_regex.so.1.84.0} $THIRDPARTY_LIB/
 }
 
+function process_setup_ubuntu_2404 {
+  cp /usr/lib/${ARCH}-linux-gnu/{libre2.so.10,libdouble-conversion.so.3,libidn.so.12,libglog.so.1,libgflags.so.2.2,libevent-2.1.so.7,libsnappy.so.1,libunwind.so.8,libcurl.so.4,libxml2.so.2,libgsasl.so.18,libicui18n.so.74,libicuuc.so.74,libnghttp2.so.14,libldap.so.2,liblber.so.2,libntlm.so.0,librtmp.so.1,libsasl2.so.2,libssh.so.4,libicudata.so.74,libthrift-0.19.0.so} $THIRDPARTY_LIB/
+  cp /usr/local/lib/{libhdfs3.so.1,libprotobuf.so.32,libboost_context.so.1.84.0,libboost_regex.so.1.84.0} $THIRDPARTY_LIB/
+}
+
 function process_setup_centos_9 {
   cp /lib64/{libre2.so.9,libdouble-conversion.so.3,libevent-2.1.so.7,libdwarf.so.0,libgsasl.so.7,libicudata.so.67,libicui18n.so.67,libicuuc.so.67,libidn.so.12,libntlm.so.0,libsodium.so.23} $THIRDPARTY_LIB/
   cp /usr/local/lib/{libhdfs3.so.1,libboost_context.so.1.84.0,libboost_filesystem.so.1.84.0,libboost_program_options.so.1.84.0,libboost_regex.so.1.84.0,libboost_system.so.1.84.0,libboost_thread.so.1.84.0,libboost_atomic.so.1.84.0,libprotobuf.so.32} $THIRDPARTY_LIB/
@@ -53,6 +58,8 @@ if [[ "$LINUX_OS" == "ubuntu" || "$LINUX_OS" == "pop" ]]; then
     process_setup_ubuntu_2004
   elif [ "$VERSION" == "22.04" ]; then
     process_setup_ubuntu_2204
+  elif [ "$VERSION" == "24.04" ]; then
+    process_setup_ubuntu_2404
   fi
 elif [ "$LINUX_OS" == "centos" ]; then
   if [ "$VERSION" == "9" ]; then

@@ -150,6 +150,14 @@ install_ubuntu_20.04() {
 
 install_ubuntu_22.04() { install_ubuntu_20.04; }
 
+install_ubuntu_24.04() {
+    sudo apt update && sudo apt install -y \
+        wget curl tar zip unzip git \
+        build-essential ccache cmake ninja-build pkg-config autoconf autoconf-archive libtool \
+        flex bison \
+        openjdk-8-jdk maven
+}
+
 install_alinux_3() {
     yum -y groupinstall "Development Tools"
     yum -y install \

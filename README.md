@@ -67,7 +67,7 @@ There are two ways to use Gluten.
 
 # 3.1 Use Released Jar
 
-One way is to use released jar. Here is a simple example. Currently, only centos7/8 and ubuntu20.04/22.04 are well supported.
+One way is to use released jar. Here is a simple example. Currently, only centos7/8 and ubuntu20.04/22.04/24.04 are well supported.
 
 ```
 spark-shell \

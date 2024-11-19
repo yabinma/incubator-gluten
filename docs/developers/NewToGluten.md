@@ -8,7 +8,7 @@ Help users to debug and test with gluten.
 
 # Environment
 
-Now gluten supports Ubuntu20.04, Ubuntu22.04, centos8, centos7 and macOS.
+Now gluten supports Ubuntu20.04, Ubuntu22.04, Ubuntu24.04, centos8, centos7 and macOS.
 
 ## OpenJDK 8
 
@@ -465,7 +465,7 @@ Refer to [velox_be.yml](https://github.com/apache/incubator-gluten/blob/main/.gi
 
 # Run gluten+velox on clean machine
 
-We can run gluten + velox on clean machine by one command (supported OS: Ubuntu20.04/22.04, Centos 7/8, etc.).
+We can run gluten + velox on clean machine by one command (supported OS: Ubuntu20.04/22.04/24.04, Centos 7/8, etc.).
 ```
 spark-shell --name run_gluten \
  --master yarn --deploy-mode client \

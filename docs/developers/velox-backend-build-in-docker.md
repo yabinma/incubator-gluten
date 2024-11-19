@@ -5,7 +5,7 @@ nav_order: 7
 parent: Developer Overview
 ---
 
-Currently, Centos-7/8/9 and Ubuntu 20.04/22.04 are supported to build Gluten Velox backend. Please refer to
+Currently, Centos-7/8/9 and Ubuntu 20.04/22.04/24.04 are supported to build Gluten Velox backend. Please refer to
 `.github/workflows/velox_weekly.yml` to install required tools before the build.
 
 There are two docker images with almost all dependencies installed, respective for static build and dynamic build.
