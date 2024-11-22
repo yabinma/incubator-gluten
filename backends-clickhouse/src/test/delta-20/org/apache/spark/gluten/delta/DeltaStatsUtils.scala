@@ -14,19 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.spark.sql.execution.datasources.velox
+package org.apache.spark.gluten.delta
 
-import scala.collection.JavaConverters.mapAsJavaMapConverter
-import scala.collection.mutable
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
-class VeloxOrcWriterInjects extends VeloxFormatWriterInjects {
-  override def nativeConf(
-      options: Map[String, String],
-      compressionCodec: String): java.util.Map[String, String] = {
-    val sparkOptions = new mutable.HashMap[String, String]()
-    // TODO: implement it
-    sparkOptions.asJava
+object DeltaStatsUtils {
+
+  def statsDF(
+      sparkSession: SparkSession,
+      deltaJson: String,
+      schema: String
+  ): DataFrame = {
+    throw new IllegalAccessException("Method not used below spark 3.5")
   }
-
-  override val formatName: String = "orc"
 }

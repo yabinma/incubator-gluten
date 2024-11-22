@@ -59,6 +59,8 @@ class GlutenConfig(conf: SQLConf) extends Logging {
 
   def forceToUseHashAgg: Boolean = conf.getConf(COLUMNAR_FORCE_HASHAGG_ENABLED)
 
+  def mergeTwoPhasesAggEnabled: Boolean = conf.getConf(MERGE_TWO_PHASES_ENABLED)
+
   def enableColumnarProject: Boolean = conf.getConf(COLUMNAR_PROJECT_ENABLED)
 
   def enableColumnarFilter: Boolean = conf.getConf(COLUMNAR_FILTER_ENABLED)
@@ -898,6 +900,13 @@ object GlutenConfig {
       .booleanConf
       .createWithDefault(true)
 
+  val MERGE_TWO_PHASES_ENABLED =
+    buildConf("spark.gluten.sql.mergeTwoPhasesAggregate.enabled")
+      .internal()
+      .doc("Whether to merge two phases aggregate if there are no other operators between them.")
+      .booleanConf
+      .createWithDefault(true)
+
   val COLUMNAR_PROJECT_ENABLED =
     buildConf("spark.gluten.sql.columnar.project")
       .internal()
@@ -1442,6 +1451,13 @@ object GlutenConfig {
       .doc("The initial memory capacity to reserve for a newly created Velox query memory pool.")
       .bytesConf(ByteUnit.BYTE)
       .createWithDefaultString("8MB")
+
+  val COLUMNAR_VELOX_MEM_RECLAIM_MAX_WAIT_MS =
+    buildConf("spark.gluten.sql.columnar.backend.velox.reclaimMaxWaitMs")
+      .internal()
+      .doc("The max time in ms to wait for memory reclaim.")
+      .timeConf(TimeUnit.MILLISECONDS)
+      .createWithDefault(TimeUnit.MINUTES.toMillis(60))
 
   val COLUMNAR_VELOX_SSD_CACHE_PATH =
     buildStaticConf("spark.gluten.sql.columnar.backend.velox.ssdCachePath")
